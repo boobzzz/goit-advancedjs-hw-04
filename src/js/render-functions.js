@@ -3,8 +3,8 @@ import { showMessage } from './messages.js';
 export const form = document.querySelector('.form');
 export const gallery = document.querySelector('.gallery');
 export const loadMoreBtn = document.querySelector('.load-more');
+
 const detailTitles = ['Likes', 'Views', 'Comments', 'Downloads'];
-const currentImages = [];
 
 export function renderGallery(images) {
   clearGallery();
@@ -14,8 +14,7 @@ export function renderGallery(images) {
     return;
   }
 
-  currentImages.push(...images);
-  currentImages.forEach((image) => {
+  images.forEach((image) => {
     gallery.append(getImageCart(image));
   });
   showGallery();
@@ -29,10 +28,10 @@ export function updateGallery(images) {
     return;
   }
 
-  currentImages.push(...images);
-  currentImages.forEach((image) => {
+  images.forEach((image) => {
     gallery.append(getImageCart(image));
   });
+  autoScrollOnLoadMore();
 }
 
 export function showGallery() {
@@ -41,6 +40,14 @@ export function showGallery() {
 
 export function hideGallery() {
   gallery.style.display = 'none';
+}
+
+export function showLoadBtn() {
+  loadMoreBtn.style.display = 'block';
+}
+
+export function hideLoadBtn() {
+  loadMoreBtn.style.display = 'none';
 }
 
 function clearGallery() {
@@ -91,10 +98,9 @@ function getImageCart(imgData) {
   return cart;
 }
 
-export function showLoadBtn() {
-  loadMoreBtn.style.display = 'block';
-}
-
-export function hideLoadBtn() {
-  loadMoreBtn.style.display = 'none';
+function autoScrollOnLoadMore() {
+  scrollBy({
+    top: gallery.children[0].getBoundingClientRect().height * 2,
+    behavior: "smooth",
+  });
 }

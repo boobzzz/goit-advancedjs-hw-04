@@ -10,7 +10,7 @@ import {
   updateGallery,
   hideGallery,
   hideLoadBtn,
-  showLoadBtn,
+  showLoadBtn, autoScrollOnLoadMore,
 } from './js/render-functions.js';
 import { showSpinner, hideSpinner } from './js/spinner.js';
 import { showMessage } from './js/messages.js';
@@ -51,8 +51,8 @@ loadMoreBtn.addEventListener('click', () => {
       showSpinner();
     },
     onSuccess: (images) => {
-      updateGallery(images);
       lightbox.refresh();
+      updateGallery(images);
     },
     onError: () => showMessage('failed'),
     onFinally: () => {
