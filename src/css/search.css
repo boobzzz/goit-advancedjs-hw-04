@@ -1,0 +1,29 @@
+.search-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
+}
+
+.form {
+  display: flex;
+  gap: 8px;
+}
+
+.form input {
+  padding: 8px 16px;
+  width: 360px;
+  height: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  outline: none;
+  color: #2E2F42;
+}
+.form input:hover {
+  border-color: #000000;
+}
+.form input:active {
+  border-color: #4E75FF;
+}
