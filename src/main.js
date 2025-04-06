@@ -10,12 +10,16 @@ import {
   updateGallery,
   hideGallery,
   hideLoadBtn,
-  showLoadBtn, autoScrollOnLoadMore,
+  showLoadBtn
 } from './js/render-functions.js';
 import { showSpinner, hideSpinner } from './js/spinner.js';
 import { showMessage } from './js/messages.js';
 
 const lightbox = new SimpleLightbox('.gallery-link');
+
+hideGallery();
+hideLoadBtn();
+hideSpinner();
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -29,6 +33,7 @@ form.addEventListener('submit', (e) => {
   processSearchResults(searchQuery, {
     onStart: () => {
       hideGallery();
+      hideLoadBtn();
       showSpinner();
     },
     onSuccess: (images) => {

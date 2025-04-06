@@ -1,9 +1,9 @@
 const spinner = document.querySelector('.loader');
 
 export function showSpinner() {
-  spinner.style.display = 'flex';
+  spinner.style.visibility = 'visible';
 }
 
 export function hideSpinner() {
-  spinner.style.display = 'none';
+  spinner.style.visibility = 'hidden';
 }

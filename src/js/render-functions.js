@@ -43,11 +43,11 @@ export function hideGallery() {
 }
 
 export function showLoadBtn() {
-  loadMoreBtn.style.display = 'block';
+  loadMoreBtn.style.visibility = 'visible';
 }
 
 export function hideLoadBtn() {
-  loadMoreBtn.style.display = 'none';
+  loadMoreBtn.style.visibility = 'hidden';
 }
 
 function clearGallery() {

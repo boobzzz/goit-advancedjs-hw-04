@@ -8,6 +8,7 @@ let currentQuery = '';
 
 export async function processSearchResults(query, { onStart, onSuccess, onError, onFinally }) {
   onStart();
+  currentPage = 1;
   currentQuery = query;
 
   await fetchImages({ onSuccess, onError, onFinally });
